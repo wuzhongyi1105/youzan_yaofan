@@ -24,4 +24,4 @@ RUN pip install -r requirement.txt \
 
 EXPOSE 35000
 
-CMD /usr/bin/gunicorn -w4 -b 0:35000 run:app
+CMD gunicorn -w4 -b 0:35000 run:app
