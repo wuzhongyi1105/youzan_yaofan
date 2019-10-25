@@ -15,12 +15,11 @@ RUN apk upgrade --update \
  && apk del build-dependencies \
  && rm -rf /tmp/* /var/cache/apk/*
 
+VOLUME /opt/yaofan
 WORKDIR /opt/yaofan
 
 RUN pip install -r requirement.txt \
  && python run.py deploy
-
-VOLUME /opt/yaofan
 
 EXPOSE 35000
 
