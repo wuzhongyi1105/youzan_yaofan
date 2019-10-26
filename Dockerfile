@@ -27,4 +27,4 @@ VOLUME /opt/yaofan
 
 EXPOSE 35000
 
-CMD /usr/bin/gunicorn -w4 -b 0:35000 $YAOFAN:app
+CMD /usr/bin/gunicorn -w4 -b 0:35000 opt.yaofan.run:app
