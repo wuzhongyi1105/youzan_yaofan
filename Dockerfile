@@ -12,18 +12,16 @@ RUN apk upgrade --update \
     openssl \
     ca-certificates \
     git \
- && git clone https://github.com/wuzhongyi1105/youzan_yaofan.git /opt/yaofan \
+ && git clone https://github.com/wuzhongyi1105/youzan_yaofan.git / \
  && apk del build-dependencies \
  && rm -rf /tmp/* /var/cache/apk/*
-
-WORKDIR /opt/yaofan
 
 RUN pip install -r requirement.txt \
  && python run.py deploy
 
-VOLUME /opt/yaofan
+VOLUME /app/youzan
+VOLUME /config.py
 
 EXPOSE 35000
 
-COPY --chown=root:root docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+CMD /usr/bin/gunicorn -w4 -b 0:35000 run:app
