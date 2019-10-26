@@ -15,6 +15,7 @@ RUN apk upgrade --update \
  && rm -rf /tmp/* /var/cache/apk/*
 
 COPY app /app
+COPY config.py /config.py
 COPY requirement.txt /requirement.txt
 COPY run.py /run.py
 COPY update.py update.py
@@ -23,7 +24,6 @@ RUN pip install -r requirement.txt \
  && python run.py deploy
 
 VOLUME /app/youzan
-VOLUME /config.py
 
 EXPOSE 35000
 
