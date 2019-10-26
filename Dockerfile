@@ -8,6 +8,7 @@ RUN apk upgrade --update \
     libffi-dev \
     build-base \
  && apk add \
+    py-pip \
     python \
     sqlite \
     openssl \
