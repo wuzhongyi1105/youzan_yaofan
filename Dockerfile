@@ -25,5 +25,5 @@ VOLUME /opt/yaofan
 
 EXPOSE 35000
 
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY --chown=root:root docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
