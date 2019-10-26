@@ -6,6 +6,6 @@ import pymysql
 
 
 SECRET_KEY = 'sssssssssss'
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')  # sqlite3
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db/data.sqlite')  # sqlite3
 # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:password@localhost/db' # user,password,db换成你的
 SQLALCHEMY_TRACK_MODIFICATIONS = True
