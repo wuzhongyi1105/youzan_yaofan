@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cd /opt/qiafan
+cd /opt/yaofan
 
 /usr/bin/gunicorn -w4 -b 0:35000 run:app
