@@ -12,9 +12,14 @@ RUN apk upgrade --update \
     openssl \
     ca-certificates \
     git \
- && git clone https://github.com/wuzhongyi1105/youzan_yaofan.git / \
  && apk del build-dependencies \
  && rm -rf /tmp/* /var/cache/apk/*
+
+COPY app /app
+COPY config.py
+COPY requirement.txt
+COPY run.py
+COPY update.py
 
 RUN pip install -r requirement.txt \
  && python run.py deploy
