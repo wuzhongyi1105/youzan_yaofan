@@ -1,7 +1,5 @@
 FROM alpine:3.4
 
-ENV YAOFAN /opt/yaofan/run.py
-
 RUN apk upgrade --update \
  && apk add -t build-dependencies \
     python-dev \
@@ -27,4 +25,5 @@ VOLUME /opt/yaofan
 
 EXPOSE 35000
 
-CMD /usr/bin/gunicorn -w4 -b 0:35000 opt.yaofan.run:app
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
